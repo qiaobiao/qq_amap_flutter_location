@@ -32,6 +32,10 @@ import 'package: amap_flutter_location/amap_location_option.dart';
 > 将您设置的参数传递到原生端对外接口，目前支持以下定位参数
 
 ``` Dart
+
+ //// 是否需要开启locatingWithReGeocode，默认false
+  bool locatingWithReGeocode = false;
+
  //// 是否需要地址信息，默认true
   bool needAddress = true;
 

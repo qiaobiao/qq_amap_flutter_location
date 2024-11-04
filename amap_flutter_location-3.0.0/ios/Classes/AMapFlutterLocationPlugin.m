@@ -9,6 +9,8 @@
 @property (nonatomic, copy) FlutterResult flutterResult;
 @property (nonatomic, strong) NSString *pluginKey;
 @property (nonatomic, copy) NSString *fullAccuracyPurposeKey;
+@property (nonatomic, assign) BOOL locatingWithReGeocode;
+
 
 @end
 
@@ -19,6 +21,7 @@
     if (self) {
         _onceLocation = false;
         _fullAccuracyPurposeKey = nil;
+        _locatingWithReGeocode = false;
     }
     return self;
 }
@@ -329,7 +332,7 @@
             NSAssert(manager,@"AMapLocationManager初始化失败，定位SDK2.8.0及以上，请务必确保调用SDK任何接口前先调用更新隐私合规updatePrivacyShow:privacyInfo、updatePrivacyAgree两个接口");
         }
         manager.pluginKey = pluginKey;
-        manager.locatingWithReGeocode = YES;
+        manager.locatingWithReGeocode = call.arguments[@"locatingWithReGeocode"];
         manager.delegate = self;
         @synchronized (self) {
             [_pluginsDict setObject:manager forKey:pluginKey];

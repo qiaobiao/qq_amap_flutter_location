@@ -3,6 +3,9 @@ class AMapLocationOption {
   /// 是否需要地址信息，默认true
   bool needAddress = true;
 
+  ///是否需要开启locatingWithReGeocode
+  bool locatingWithReGeocode = false;
+
   ///逆地理信息语言类型<br>
   ///默认[GeoLanguage.DEFAULT] 自动适配<br>
   ///可选值：<br>
@@ -58,6 +61,7 @@ class AMapLocationOption {
   AMapLocationOption(
       {this.locationInterval = 2000,
       this.needAddress = true,
+      this.locatingWithReGeocode = false,
       this.locationMode = AMapLocationMode.Hight_Accuracy,
       this.geoLanguage = GeoLanguage.DEFAULT,
       this.onceLocation = false,
@@ -72,6 +76,7 @@ class AMapLocationOption {
     return {
       "locationInterval": this.locationInterval,
       "needAddress": needAddress,
+      "locatingWithReGeocode":locatingWithReGeocode,
       "locationMode": locationMode.index,
       "geoLanguage": geoLanguage.index,
       "onceLocation": onceLocation,

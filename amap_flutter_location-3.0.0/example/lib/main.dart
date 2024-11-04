@@ -90,6 +90,8 @@ class _MyAppState extends State<MyApp> {
     ///是否需要返回逆地理信息
     locationOption.needAddress = true;
 
+    locationOption.locatingWithReGeocode = true;
+
     ///逆地理信息的语言类型
     locationOption.geoLanguage = GeoLanguage.DEFAULT;
 
