@@ -332,7 +332,11 @@
             NSAssert(manager,@"AMapLocationManager初始化失败，定位SDK2.8.0及以上，请务必确保调用SDK任何接口前先调用更新隐私合规updatePrivacyShow:privacyInfo、updatePrivacyAgree两个接口");
         }
         manager.pluginKey = pluginKey;
-        manager.locatingWithReGeocode = call.arguments[@"locatingWithReGeocode"];
+        if([call.arguments[@"locatingWithReGeocode"]length]>0){
+           manager.locatingWithReGeocode = call.arguments[@"locatingWithReGeocode"];
+        }else{
+           manager.locatingWithReGeocode = _locatingWithReGeocode;
+        }
         manager.delegate = self;
         @synchronized (self) {
             [_pluginsDict setObject:manager forKey:pluginKey];
