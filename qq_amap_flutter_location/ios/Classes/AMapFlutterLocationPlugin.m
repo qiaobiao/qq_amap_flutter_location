@@ -9,7 +9,6 @@
 @property (nonatomic, copy) FlutterResult flutterResult;
 @property (nonatomic, strong) NSString *pluginKey;
 @property (nonatomic, copy) NSString *fullAccuracyPurposeKey;
-@property (nonatomic, assign) BOOL locatingWithReGeocode;
 
 
 @end
@@ -21,7 +20,6 @@
     if (self) {
         _onceLocation = false;
         _fullAccuracyPurposeKey = nil;
-        _locatingWithReGeocode = false;
     }
     return self;
 }
@@ -335,7 +333,7 @@
         if([call.arguments[@"locatingWithReGeocode"]length]>0){
            manager.locatingWithReGeocode = call.arguments[@"locatingWithReGeocode"];
         }else{
-           manager.locatingWithReGeocode = _locatingWithReGeocode;
+           manager.locatingWithReGeocode = false;
         }
         manager.delegate = self;
         @synchronized (self) {
